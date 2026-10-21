@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bilingual-rag-platform"
+version = "0.1.0"
+description = "Arabic-English RAG and LLM engineering platform: retrieval, evaluation, MCP, vLLM serving, QLoRA, agents."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2",
+    "pyyaml",
+    "httpx",
+]
+
+# Extras are split on purpose. Install each into its own virtualenv where noted:
+#   .venv-app   -> pip install -e ".[rag,eval,mcp,dev]"
+#   .venv-train -> pip install -e ".[train]"
+#   .venv-vllm  -> pip install vllm   (kept out of this file to avoid version conflicts)
+# Versions are intentionally unpinned here; pin with a lock file once the stack works.
+[project.optional-dependencies]
+rag = [
+    "openai",
+    "sentence-transformers",
+    "qdrant-client",
+    "rank-bm25",
+    "fastapi",
+    "uvicorn",
+]
+eval = [
+    "ragas",
+    "datasets",
+    "numpy",
+    "pandas",
+]
+mcp = [
+    "mcp",
+]
+train = [
+    "transformers",
+    "peft",
+    "trl",
+    "bitsandbytes",
+    "accelerate",
+    "datasets",
+]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests", "scripts"]

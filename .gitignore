@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv*/
+build/
+dist/
+
+# Secrets
+.env
+*.key
+
+# Large artifacts: keep these out of git (use the Hugging Face Hub / DVC)
+models/
+checkpoints/
+outputs/
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+wandb/
+mlruns/
+
+# Data (small cards and the golden set are tracked; raw/processed dumps are not)
+data/raw/
+data/processed/
+data/index/
+qdrant_storage/
+
+# Eval caches (judge call caches can be large)
+.eval_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
