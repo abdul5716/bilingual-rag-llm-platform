@@ -18,7 +18,7 @@ original plan, the phase order, deliverables, and acceptance criteria.
 
 | Phase | Topic | Status |
 |-------|-------|--------|
-| 0 | Foundations and environment | environment done; tokenisation/embedding exercises left |
+| 0 | Foundations and environment | done (see `docs/PHASE0_NOTES.md`) |
 | 1 | Bilingual RAG baseline | not started |
 | 2 | Evaluation and regression gates | not started |
 | 3 | vLLM serving and benchmarks | not started |
