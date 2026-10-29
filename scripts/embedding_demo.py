@@ -18,7 +18,7 @@ MODEL = "BAAI/bge-m3"
 
 def main() -> None:
     model = SentenceTransformer(MODEL, device="cuda")
-    print(f"model: {MODEL}, dim={model.get_sentence_embedding_dimension()}, "
+    print(f"model: {MODEL}, dim={model.get_embedding_dimension()}, "
           f"max_seq_length={model.max_seq_length}")
 
     english = [e for e, _ in PAIRS]
